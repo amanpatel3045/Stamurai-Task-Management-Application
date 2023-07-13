@@ -4,8 +4,8 @@ import { observer } from "mobx-react-lite";
 import { Task } from "@/store/DataStore";
 import { useEffect, useMemo, useState } from "react";
 // import Tasktable from "@/components/Tasktable";
-import { DataStore } from "@/store/DataStore";
-import Tasktable from "@/components/Tasktable";
+import { DataStore } from "../store/DataStore";
+import Tasktable from "../components/Tasktable";
 
 export default observer(function Home() {
   const [taskData, setData] = useState<Task>({
