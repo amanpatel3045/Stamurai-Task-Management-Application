@@ -1,8 +1,10 @@
 "use client";
 import { observer } from "mobx-react-lite";
-import { DataStore } from "@/store/DataStore";
+// import { DataStore } from "@/store/DataStore";
 import { Task } from "@/store/DataStore";
 import { useEffect, useMemo, useState } from "react";
+// import Tasktable from "@/components/Tasktable";
+import { DataStore } from "@/store/DataStore";
 import Tasktable from "@/components/Tasktable";
 
 export default observer(function Home() {
@@ -72,35 +74,36 @@ export default observer(function Home() {
           document.querySelector("form")?.reset();
         }}
       >
-  <div className="flex justify-between border-b-2 p-5 border-blue-400">
-  <label htmlFor="name" className="text-xl">Task Name</label>
-</div>
-<input
-  type="text"
-  id="name"
-  className={
-    "w-96 m-2 border-2 rounded p-2 "
-  }
-  placeholder="Enter Task Name"
-  name="name"
-  required={true}
-  onChange={handleInputTask}
-/>
+        <div className="flex justify-between border-b-2 p-5 border-blue-400">
+          <label htmlFor="name" className="text-xl">
+            Task Name
+          </label>
+        </div>
+        <input
+          type="text"
+          id="name"
+          className={"w-96 m-2 border-2 rounded p-2 "}
+          placeholder="Enter Task Name"
+          name="name"
+          required={true}
+          onChange={handleInputTask}
+        />
 
-<div className="flex justify-between border-b-2 p-5 border-blue-400">
-  <label htmlFor="description" className="text-xl">Task Description</label>
-</div>
-<textarea
-  id="description"
-  name="description"
-  cols={40}
-  rows={4}
-  required={true}
-  className={"border-2 m-2 rounded p-2 w-96"}
-  placeholder="Enter Task Details"
-  onChange={handleInputTask}
-></textarea>
-
+        <div className="flex justify-between border-b-2 p-5 border-blue-400">
+          <label htmlFor="description" className="text-xl">
+            Task Description
+          </label>
+        </div>
+        <textarea
+          id="description"
+          name="description"
+          cols={40}
+          rows={4}
+          required={true}
+          className={"border-2 m-2 rounded p-2 w-96"}
+          placeholder="Enter Task Details"
+          onChange={handleInputTask}
+        ></textarea>
 
         <div className="text-center p-5">
           <button className="border-2 rounded p-2 w-36 border-pink-500 bg-pink-600 hover:bg-pink-400 font-font-semibold text-white tracking-wider">
@@ -109,7 +112,6 @@ export default observer(function Home() {
         </div>
       </form>
 
-    
       <Tasktable
         tasks={tasks}
         update={updateTask}
